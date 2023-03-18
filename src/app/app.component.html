@@ -1,0 +1,81 @@
+<div id="dyson-controller" class="container p-2">
+  <div class="header">
+    <img src="assets/canary.png">
+    <p class="h3">Geinfor Canary</p>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="chart-container shadow">
+        <div id="chart"></div>
+      </div>
+    </div>
+    <div class="col-6 panel-control">
+      <div [formGroup]="form" class="card shadow-sm">
+        <div class="row">
+          <div class="row contenedor-switches">
+            <div class="switch-holder">
+              <div class="switch-label">
+                <span>Encendido</span>
+              </div>
+              <div class="switch-toggle">
+                <input
+                  formControlName="encendido"
+                  type="checkbox"
+                  id="encendido"
+                />
+                <label for="encendido"></label>
+              </div>
+            </div>
+
+            <div class="switch-holder">
+              <div class="switch-label">
+                <span>Oscilar</span>
+              </div>
+              <div class="switch-toggle">
+                <input formControlName="oscilar" type="checkbox" id="oscilar" />
+                <label for="oscilar"></label>
+              </div>
+            </div>
+
+            <div class="switch-holder">
+              <div class="switch-label">
+                <span>Modo auto</span>
+              </div>
+              <div class="switch-toggle">
+                <input formControlName="auto" type="checkbox" id="auto" />
+                <label for="auto"></label>
+              </div>
+            </div>
+
+            <div class="switch-holder">
+              <div class="switch-label">
+                <span>Dirección aire</span>
+              </div>
+              <div class="switch-toggle">
+                <input
+                  formControlName="direccion"
+                  type="checkbox"
+                  id="direccion"
+                />
+                <label for="direccion"></label>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!form.value.auto" class="row mt-5">
+            <span>Potencia ventilador: {{ form.value.potencia }}</span>
+            <mat-slider
+              min="1"
+              max="10"
+              step="1"
+              tickInterval="1"
+              [value]="form.value.potencia"
+              (change)="
+                form.patchValue({ potencia: $event.value ? $event.value : 1 })
+              "
+            ></mat-slider>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
