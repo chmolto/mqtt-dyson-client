@@ -1,3 +1,6 @@
+# Copy to broker.conf (git-ignored) and fill in your device details.
+# Run with: mosquitto -c broker.conf
+
 log_type all
 
 listener 9001
@@ -10,8 +13,10 @@ allow_anonymous true
 
 #bridge
 connection bridge-01
+# Local IP of your Dyson fan (check your router)
 address 192.168.1.50:1883
 remote_clientid dyson-bridge
+# Device credentials (see README: "Getting your fan's credentials")
 remote_username YOUR-DEVICE-SERIAL
 remote_password YOUR-DEVICE-PASSWORD
 bridge_protocol_version mqttv311

@@ -43,3 +43,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Local broker config with device credentials
+src/app/constants/broker.conf

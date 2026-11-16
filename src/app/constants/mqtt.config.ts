@@ -2,6 +2,7 @@ import { FanControlModel } from './../models/fan-control.model';
 export const BROKER = 'localhost';
 export const BROKER_PORT = 9001;
 
+// Your fan's serial / MQTT username (same as remote_username in broker.conf)
 export const USERNAME = 'YOUR-DEVICE-SERIAL';
 export const TOPIC_STATUS_CURRENT = `438/${USERNAME}/status/current`;
 export const TOPIC_STATUS_SOFTWARE = `438/${USERNAME}/status/software`;
